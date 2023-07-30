@@ -8,6 +8,9 @@ import AliceCarousel from "react-alice-carousel";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
+import { BASE_URL } from "url/url";
+
+
 const ProductList = () => {
   const responsiveAlice = {
     0: { items: 1 },
@@ -41,7 +44,7 @@ const ProductList = () => {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/admin/courses")
+    fetch(`${BASE_URL}/admin/courses`)
       .then((res) => res.json())
       .then((result) => {
         setCourses(result);

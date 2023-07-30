@@ -11,6 +11,9 @@ import { Button } from "components/Button/Button";
 import FacebookIcon from "../../assets/icons/facebook-icon.svg";
 import GoogleIcon from "../../assets/icons/google-icon.svg";
 
+import { BASE_URL } from "url/url";
+
+
 const StyledLogIn = styled.div`
   display: flex;
   height: 1117px;
@@ -95,7 +98,7 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        "http://localhost:8080/api/v1/auth/authenticate",
+        `${BASE_URL}/api/v1/auth/authenticate`,
         {
           method: "POST",
           headers: {

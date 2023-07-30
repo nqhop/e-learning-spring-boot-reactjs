@@ -11,6 +11,8 @@ import { ReactComponent as PurchaseIcon } from "../../../assets/icons/dashboardi
 import { ReactComponent as SessionsIcon } from "../../../assets/icons/dashboardicon/sessions-icon.svg";
 import { ReactComponent as ArrowPointDown } from "../../../assets/icons/dashboardicon/arrow-point-down.svg";
 import { MyClassesCard } from "../MyClassesCard";
+import { BASE_URL } from "url/url";
+
 const StyledSidebar = styled.div`
   width: 100%;
   padding-left: 63px;
@@ -177,7 +179,7 @@ export const Sidebar = (props) => {
 
   useEffect(() => {
     console.log(user)
-    const url = `http://localhost:8080/admin/user/${user}`
+    const url = `${BASE_URL}/admin/user/${user}`
     console.log(url)
     fetch(url)
       .then((res) => res.json())

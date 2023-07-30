@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { BASE_URL } from "url/url";
 
 
 const initialState = {
@@ -10,7 +11,7 @@ const initialState = {
 export const productsFetch = createAsyncThunk(
     "products/productsFetch",
     async() => {
-        const response = await axios.get("http://localhost:8080/admin/courses")
+        const response = await axios.get(`${BASE_URL}/admin/courses`)
         return response?.data
     }
 )

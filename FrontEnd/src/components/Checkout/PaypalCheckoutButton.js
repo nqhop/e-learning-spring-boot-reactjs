@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import {  clearCart,getTotals } from 'features/cartSlice'
 import { selectCurrentUser } from "features/auth/authSlice";
+import { BASE_URL } from "url/url";
 
 
 
@@ -20,7 +21,7 @@ const PaypalCheckoutButton = (props) => {
     const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/admin/courses")
+    fetch(`${BASE_URL}/admin/courses`)
       .then((res) => res.json())
       .then((result) => {
         setCourses(result);
@@ -73,7 +74,7 @@ const PaypalCheckoutButton = (props) => {
 
         axios({
             method: 'POST',
-            url: 'http://localhost:8080/admin/add-order',
+            url: `${BASE_URL}/admin/add-order`,
             headers: {
                 'Content-Type': 'application/json',
                     },

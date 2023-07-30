@@ -8,6 +8,8 @@ import tutor1 from "assets/images/avatars/tutors/tutor1.png"
 import tutor2 from "assets/images/avatars/tutors/tutor2.png"
 import tutor3 from "assets/images/avatars/tutors/tutor3.png"
 import tutor4 from "assets/images/avatars/tutors/tutor4.png"
+import { BASE_URL } from "url/url";
+
 
 const GoodDesignStyled = styled.div`
     /* height: 400px; */
@@ -28,7 +30,7 @@ const GoodDesign = () => {
     };
     const [tutors, setTutors] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:8080/admin/tutor")
+        fetch(`${BASE_URL}/admin/tutor`)
         .then((res) => res.json())
         .then((result) => {
             setTutors(result)

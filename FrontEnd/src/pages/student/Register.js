@@ -9,6 +9,8 @@ import { useDispatch } from "react-redux";
 import { setCredentials } from "features/auth/authSlice";
 import { useLoginMutation } from "features/auth/authApiSlice";
 
+import { BASE_URL } from "url/url";
+
 import { Link } from "react-router-dom";
 
 const StyledSignUp = styled.div`
@@ -129,7 +131,7 @@ const Register = () => {
         e.preventDefault();
         try {
             const response = await fetch(
-                "http://localhost:8080/api/v1/auth/register",
+                `${BASE_URL}/api/v1/auth/register`,
                 {
                     method: "POST",
                     headers: {

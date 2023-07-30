@@ -3,12 +3,12 @@ services:
   mysql:
     image: mysql:latest
     environment:
-      - MYSQL_DATABASE=m_movies
+      - MYSQL_DATABASE=Elearning
       - MYSQL_ROOT_PASSWORD=123456
     expose:
       - 3307
   cmm_movies:
-    image: cmm_movies:latest
+    image: e-learning:latest
     ports:
       - "8080:8080"
     depends_on:

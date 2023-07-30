@@ -3,8 +3,7 @@ import { Button } from "components/Button/Button";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
-
-
+import { BASE_URL } from "url/url";
 import { Card } from "../components/Card/Card"
 
 import axios from "axios";
@@ -74,7 +73,7 @@ const HourOfPurchaseHistoryPage = () => {
 
   useEffect(() => {
         
-    fetch("http://localhost:8080/admin/courses")
+    fetch(`${BASE_URL}/admin/courses`)
       .then((res) => res.json())
       .then((data) => {
         setCourses(data);
@@ -86,7 +85,7 @@ const HourOfPurchaseHistoryPage = () => {
 
   useEffect(() => {
     console.log(user)
-    const url = `http://localhost:8080/admin/order/${user}`
+    const url = `${BASE_URL}/admin/order/${user}`
     console.log(url)
     fetch(url)
       .then((res) => res.json())

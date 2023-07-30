@@ -6,6 +6,8 @@ import { Button } from "components/Button/Button";
 import fakeData from "../../../LIST_CLASS_MOCK_DATA.json";
 import { ClassCard } from "../DashboardCard";
 import { async } from "q";
+import { BASE_URL } from "url/url";
+
 import Swal from "sweetalert2";
 
 const MyClassPageContentsStyled = styled.div`
@@ -144,7 +146,7 @@ export const AddCoursesContents = () => {
         // console.log(formData)
         try {
             const response = await fetch(
-                "http://localhost:8080/admin/add-course",
+                `${BASE_URL}/admin/add-course`,
                 {
                     method: "POST",
                     headers: {

@@ -4,6 +4,7 @@ import { Button } from "components/Button/Button";
 import personAvt from "../../../assets/images/personAvt.svg";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { BASE_URL } from "url/url";
 
 const StyleCourseDetailsBanner = styled.div`
   height: 1000px;
@@ -170,7 +171,7 @@ export const CourseDetailsBanner = () => {
   const { id, orderId } = useParams();
   const [course, setCourse] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:8080/admin/courses/${id}`)
+    fetch(`${BASE_URL}/admin/courses/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setCourse(data);

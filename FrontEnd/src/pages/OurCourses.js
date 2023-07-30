@@ -10,6 +10,7 @@ import styled from "styled-components";
 import { useEffect } from "react";
 import { useState } from "react";
 import { selectCurrentUser } from "features/auth/authSlice";
+import { BASE_URL } from "url/url";
 
 const OurCoursesStyled = styled.div`
   .product {
@@ -37,7 +38,8 @@ const OurCourses = () => {
   // console.log(data);
 
   useEffect(() => {
-    fetch("http://localhost:8080/admin/courses")
+   
+    fetch(`${BASE_URL}/admin/courses`)
       .then((res) => res.json())
       .then((data) => {
         setCourses(data);
@@ -52,7 +54,7 @@ const OurCourses = () => {
 
   useEffect(() => {
     console.log(user)
-    const url = `http://localhost:8080/admin/user/${user}`
+    const url = `${BASE_URL}/admin/user/${user}`
     console.log(url)
     fetch(url)
       .then((res) => res.json())

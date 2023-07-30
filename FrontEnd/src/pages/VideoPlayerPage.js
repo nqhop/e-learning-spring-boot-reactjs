@@ -3,6 +3,8 @@ import AliceCarousel from "react-alice-carousel";
 import { VideoPlayerJSX } from "components/Dashboard/VideoPlayer";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { BASE_URL } from "url/url";
+
 import styled from "styled-components";
 
 const responsiveAlice = {
@@ -66,7 +68,7 @@ const VideoPlayerPage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/admin/courses/${id}`)
+    fetch(`${BASE_URL}/admin/courses/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);

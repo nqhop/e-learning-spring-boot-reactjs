@@ -11,6 +11,8 @@ import { useState,useEffect } from "react";
 import { TutorHoverCard } from "../DashboardCard/TutorHoverCard";
 import { TutorRankingTable } from "../Table";
 import { DashboardPopupInfo } from ".";
+import { BASE_URL } from "url/url";
+
 
 const PageStyled = styled.div`
   width: 90%;
@@ -144,7 +146,7 @@ export const DashboardContents = () => {
 
   useEffect(() => {
     console.log(user)
-    const url = `http://localhost:8080/admin/user/${user}`
+    const url = `${BASE_URL}/admin/user/${user}`
     console.log(url)
     fetch(url)
       .then((res) => res.json())
